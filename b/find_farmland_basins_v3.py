@@ -64,15 +64,15 @@ print(final_direction)
 result = input_matrix + minimum
 # print(result)
 
-def find_next_cell(i, j, dir):
-    dir = dir.decode('utf-8')
-    if dir == 'u':
+def find_next_cell(i, j, direct):
+    direct = direct.decode('utf-8')
+    if direct == 'u':
         return i-1, j
-    if dir == 'd':
+    if direct == 'd':
         return i+1, j
-    if dir == 'r':
+    if direct == 'r':
         return i, j+1
-    if dir == 'l':
+    if direct == 'l':
         return i, j-1
     return i, j
 
@@ -80,9 +80,9 @@ def find_next_cell(i, j, dir):
 d = {}
 for i in range(6):
     for j in range(5):
-            cell = '%d_%d' % (i,j)
-            next_cell = '%d_%d' % find_next_cell(i, j, final_direction[i,j])
-            d[cell] = next_cell, final_direction[i,j] == b'B'
+        cell = '%d_%d' % (i,j)
+        next_cell = '%d_%d' % find_next_cell(i, j, final_direction[i,j])
+        d[cell] = next_cell, final_direction[i,j] == b'B'
 #pprint(d)
 
 final_d = {}
@@ -110,6 +110,6 @@ print(result)
 #print(expected_result)
 
 if np.array_equal(expected_result, result):
-	print('Pass!')
+    print('Pass!')
 else:
-	print('Fail!')
+    print('Fail!')
