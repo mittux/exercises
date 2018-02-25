@@ -30,14 +30,13 @@ def initialize_exchange(exchange):
                                 data[2], data[3], data[4]))   
          
 def generate_trades(stocks):
-    '''Generates trades in the past'''
+    '''Generator that yields trades from the past sampling period'''
     stock_list = list(stocks.keys())
-    trades = []
     trades_per_second = random.randint(1, TRADES_PER_SECOND_MAX)
     trades_sampling_period = SAMPLING_PERIOD * 60 * trades_per_second
     current_time = datetime.now()
     time_decrement = timedelta(seconds=1/trades_per_second) 
-    print('Generating %s trades ...' % trades_sampling_period)
+    print('Generating %d trades ...' % trades_sampling_period)
     for _ in range(trades_sampling_period):
         symbol = random.choice(stock_list)
         quantity = random.randint(1, QUANTITY_MAX)
@@ -47,8 +46,7 @@ def generate_trades(stocks):
                     current_price + current_price * PRICE_VARIABILITY
         price = random.uniform(low, high)
         current_time -= time_decrement
-        trades.append(Trade(symbol, price, quantity, kind, current_time))
-    return trades
+        yield Trade(symbol, price, quantity, kind, current_time)
 
 def get_pe_ratio(exchange, ticker):
     return exchange.get_stocks()[ticker].compute_pe_ratio()
@@ -71,7 +69,7 @@ def main():
     count = 0
     
     while count < SAMPLE_RUN:        
-        # generate trades
+        # generate trades and record on exchange
         for t in generate_trades(gbex.get_stocks()): gbex.record_trade(t)
             
         # uncomment below line to see trades in the sampling period - WARNING : this will spew out a lot of lines
