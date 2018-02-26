@@ -60,7 +60,7 @@ class Stock:
                 total_quantity += t.quantity
                 total_value += t.price * t.quantity
             self._price =  total_value / total_quantity
-            return self._price
+        return self._price
 
     def compute_dividend_yield(self):
         if self.stock_type == 'Preferred':
