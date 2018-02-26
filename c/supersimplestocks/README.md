@@ -5,10 +5,10 @@ Python 3 is required.
 Required files:  
 `SuperSimpleStocks/__init__.py`  
 `SuperSimpleStocks/SuperSimpleStocks.py`  
-`TestSuperSimpleStocks.py`  
+`DemoSuperSimpleStocks.py`  
 
 To run:  
-`$ python TestSuperSimpleStocks.py`
+`$ python DemoSuperSimpleStocks.py`
 
 Tested using python 3.5.4 on Ubuntu Linux 17.04
 
