@@ -6,14 +6,12 @@ Required files:
 `SuperSimpleStocks/__init__.py`  
 `SuperSimpleStocks/SuperSimpleStocks.py`  
 `DemoSuperSimpleStocks.py`  
+`TestSuperSimpleStocks.py`  
 
-To run:  
+To run demo:  
 `$ python DemoSuperSimpleStocks.py`
 
-Tested using python 3.5.4 on Ubuntu Linux 17.04
-
-
-### Sample Output
+#### Sample Demo Output
 
         Global Beverage Corporation Exchange - 103.484  
         "GIN" Preferred price=  99.08p dividend_yield= 0.0202 p/e=12.3854  
@@ -29,6 +27,11 @@ Tested using python 3.5.4 on Ubuntu Linux 17.04
         "TEA" Common    price=  92.44p dividend_yield= 0.0000 p/e= 0.0000  
         "POP" Common    price=  91.41p dividend_yield= 0.0875 p/e=11.4263
 
+To run unit test:  
+`$ python TestSuperSimpleStocks.py -v`
+
+Tested using Python 3.5.4 on Ubuntu Linux 17.04
+
 
 ### Assumptions
 
@@ -36,7 +39,7 @@ Tested using python 3.5.4 on Ubuntu Linux 17.04
 
 * Initial stock price dervied from par value (even though in reality stock price has no bearing on its par value)
 
-* 0.0 is returned for P/E for a stock if its dividend is zero
+* 0.0 is returned for P/E if the stock's dividend is zero
 
 
 ### Notes
